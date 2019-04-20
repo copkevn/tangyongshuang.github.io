@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>搭建Hexo博客，部署到Github主页 | 岸河世界</title>
+  <title>岸河世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="java developer">
+  <meta name="description" content="搭建步骤 首先是建立父工程，可以使用 Spring Initializr 工具，直接一路默认就可以了，命名默认是：xxx-parent格式；  删除 .mvn , src , mvnw , mwnw.cmd 这几个文件，通过Spring Initializr建立文件时，会默认产生这几个文件，主要是为了防止你本地未安装maven，通过这几个mvn相关文件可以给你安装一个maven，父工程的src目录">
+<meta name="keywords" content="java developer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建Hexo博客，部署到Github主页">
-<meta property="og:url" content="http://yoursite.com/2019/04/20/搭建Hexo博客，部署到Github主页-1/index.html">
+<meta property="og:title" content="岸河世界">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/建立Maven复合工程-1/index.html">
 <meta property="og:site_name" content="岸河世界">
+<meta property="og:description" content="搭建步骤 首先是建立父工程，可以使用 Spring Initializr 工具，直接一路默认就可以了，命名默认是：xxx-parent格式；  删除 .mvn , src , mvnw , mwnw.cmd 这几个文件，通过Spring Initializr建立文件时，会默认产生这几个文件，主要是为了防止你本地未安装maven，通过这几个mvn相关文件可以给你安装一个maven，父工程的src目录">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-04-20T02:13:35.034Z">
+<meta property="og:updated_time" content="2019-04-20T13:15:35.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建Hexo博客，部署到Github主页">
+<meta name="twitter:title" content="岸河世界">
+<meta name="twitter:description" content="搭建步骤 首先是建立父工程，可以使用 Spring Initializr 工具，直接一路默认就可以了，命名默认是：xxx-parent格式；  删除 .mvn , src , mvnw , mwnw.cmd 这几个文件，通过Spring Initializr建立文件时，会默认产生这几个文件，主要是为了防止你本地未安装maven，通过这几个mvn相关文件可以给你安装一个maven，父工程的src目录">
   
     <link rel="alternative" href="/atom.xml" title="岸河世界" type="application/atom+xml">
   
@@ -152,27 +155,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-搭建Hexo博客，部署到Github主页-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-建立Maven复合工程-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      搭建Hexo博客，部署到Github主页
-    </h1>
-  
-
-        
-        <a href="/2019/04/20/搭建Hexo博客，部署到Github主页-1/" class="archive-article-date">
-  	<time datetime="2019-04-20T02:13:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h4><ol>
+<li><p>首先是<strong>建立父工程</strong>，可以使用 Spring Initializr 工具，直接一路默认就可以了，命名默认是：xxx-parent格式；</p>
+</li>
+<li><p>删除 .mvn , src , mvnw , mwnw.cmd 这几个文件，通过Spring Initializr建立文件时，会默认产生这几个文件，主要是为了防止你本地未安装maven，通过这几个mvn相关文件可以给你安装一个maven，父工程的src目录下是不写代码的，所以一并删除掉。</p>
+</li>
+<li><p>将进入pom文件，将这个项目GAV坐标下加一个<code>&lt;packaging&gt;</code>标签，表示以pom文件打包，这个主要目的是进行依赖传递等等。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>建立子工程</strong>，选中父工程邮件——new——Module——maven——next(什么都不要填)——填写相关项目信息，完成。</p>
+</li>
+<li><p>可以看到在父工程和子工程里默认增加了相互依赖的关系：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父工程 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>Eureka-Server<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 子工程 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cloud-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.anhe<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h4><p>按照上面步骤搭建完成的时候可以看到父工程里默认的parent依赖如下： </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.9.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>还有<code>spring-boot-starter</code>和<code>spring-boot-starter-test</code>的依赖，这些都可以删除，可以将<dependencies>标签里的所有依赖都删除掉。</dependencies></p>
+<p><properties>标签可以按如下配置</properties></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果是Cloud工程，需要添加如下配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>Edgware.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -251,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/20/搭建Hexo博客，部署到Github主页-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/20/建立Maven复合工程-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -266,8 +275,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/04/19/我的第一篇Hexo博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇Hexo博客</div>
+    <a href="/2019/04/20/建立Maven复合工程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">建立Maven复合工程</div>
       <i class="icon-circle-right"></i>
     </a>
   
