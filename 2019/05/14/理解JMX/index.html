@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>Archives - 岸河世界</title>
+<title>理解jmx - 岸河世界</title>
 
 <meta name="keywords" content="java developer">
 
@@ -112,8 +112,10 @@
 
             <div class="page-title">
     <ul>
-        <li><a href="/" data-name="Home" title="Back Home">Home</a></li>
-        <li><a href="/tags" data-name="Tag Cloud" title="Tag Cloud">Tags</a></li>
+        <li><a href="/">Recent Posts</a></li>
+        
+        
+        
         <li class="page-search">
     <form id="search" class="search-form">
         <input type="text" readonly="readonly" id="local-search-input-tip" placeholder="click to search...">
@@ -126,159 +128,65 @@
 <div class="main-inner">
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="post-header">
-            <h3 class="post-title">Nice 🥳 12 posts in total. Keep on posting.</h3>
-        </div>
-        
-
-        <div class="post-content markdown-body" itemprop="articleBody">
-            <div class="archives">
-                
-                
-                
-                
-                
-                <div class="archives-item">
-                    <h2>2019年08月</h2>
-                    <ul class="archives_list">
-                        
-                        <li>14日15:47:22
-                            <a href="/2019/08/14/logback日志详解/">logback日志详解</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                
-                
-                
-                
-                <div class="archives-item">
-                    <h2>2019年07月</h2>
-                    <ul class="archives_list">
-                        
-                        <li>28日18:06:30
-                            <a href="/2019/07/28/Apache-Axis2-for-Java/">Apache Axis2 for Java</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>05日22:04:30
-                            <a href="/2019/07/05/AQS相关知识/">AQS相关知识</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                
-                
-                
-                
-                <div class="archives-item">
-                    <h2>2019年06月</h2>
-                    <ul class="archives_list">
-                        
-                        <li>14日19:05:59
-                            <a href="/2019/06/14/Spring-Boot如何配置自定义启动类/">Spring Boot如何配置自定义启动类</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>01日07:25:44
-                            <a href="/2019/06/01/Python自学笔记/">Python自学笔记</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                
-                
-                
-                
-                <div class="archives-item">
-                    <h2>2019年05月</h2>
-                    <ul class="archives_list">
-                        
-                        <li>21日21:28:12
-                            <a href="/2019/05/21/java与mysql对应数据类型/">java与mysql对应数据类型</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>14日22:07:40
-                            <a href="/2019/05/14/理解JMX/">理解JMX</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>02日16:01:22
-                            <a href="/2019/05/02/WebServices相关知识点/">WebServices相关知识点</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                
-                
-                
-                
-                <div class="archives-item">
-                    <h2>2019年04月</h2>
-                    <ul class="archives_list">
-                        
-                        <li>22日23:53:30
-                            <a href="/2019/04/22/work/Set排序方法/">Set排序方法</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>20日23:53:30
-                            <a href="/2019/04/20/work/建立Maven复合工程/">建立Maven复合工程</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>19日23:53:30
-                            <a href="/2019/04/19/work/搭建Hexo博客，部署到Github主页/">搭建Hexo博客，Github部署</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>19日23:36:02
-                            <a href="/2019/04/19/work/hello-world/">Hello World</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://tangyongshuang.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">Author</span>
+                    <a href="https://tangyongshuang.github.io" target="_blank">唐永双</a>
+                    <span title="Last edited at&nbsp;2019-05-14">2019-05-14</span>
+                </p>
+                <p>来自岸河世界</p>
+            </div>
+            <h2 class="post-title">理解JMX</h2>
+            <div class="post-meta">
+                emm... 606 words in the article |
+                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
             </div>
         </div>
+        <div class="post-content markdown-body">
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><blockquote>
+<p>本文的背景是探索企业级应用监控可视化方案，本文尝试的解决方案是：Prometheus+Grafana动态展示应用的运行状态。</p>
+</blockquote>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>JSR中对JMX的描述定义如下：</p>
+<blockquote>
+<p><code>The JMX specification will provide a management architecture, APIs and services for building Web-based, distributed, dynamic and modular solutions to manage Java enabled resources.</code></p>
+<p>译文：JMX 规范将提供管理体系结构、Api 和服务, 用于构建基于 web 的分布式、动态和模块化解决方案, 以管理支持 Java 的资源。</p>
+</blockquote>
+<p>最后面的<code>to manage Java enabled resources</code>这一句话不是特别好理解，以管理支持 Java 的资源 ,在这里我的理解是比如tomcat，redis，mysql之类的，都是支持java的，JMX依然可以管理这些资源，不过在我们实际应用中更多是利用JMX监控资源的动态变化过程，而不是管理资源。</p>
+<h2 id="相关名词解释"><a href="#相关名词解释" class="headerlink" title="相关名词解释"></a>相关名词解释</h2><p>JMX：Java Management Extensions </p>
+<p>MBenas：Managed Beans</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>JMX发布列表：<code>https://jcp.org/en/jsr/detail?id=3</code></p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+            <a href="/tags/JSR规范、JMX/">JSR规范、JMX</a>
+            
+        </div>
+        
     </article>
+    
+    <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
+    
+    
+
+    
+
 </div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
 
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
-    <div class="footer-inner" style="text-align: left">
+    <div class="footer-inner" style="text-align: center">
         <p>
             <a href="/about" title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->

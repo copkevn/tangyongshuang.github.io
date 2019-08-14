@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="唐永双">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>webservices相关知识点 - 岸河世界</title>
+
+<meta name="keywords" content="java developer">
+
+<meta name="description " content>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="唐">唐</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">岸河世界</h1>
+        <h3 class="cover-siteTitle">将军发于士卒</h3>
+        <p class="cover-siteDesc">一个现实的理想主义者</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="https://www.circle.us/" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.shikeyou.com" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://github.com/tangyongshuang" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/tangyongshuang" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">Recent Posts</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text" readonly="readonly" id="local-search-input-tip" placeholder="click to search...">
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://tangyongshuang.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">Author</span>
+                    <a href="https://tangyongshuang.github.io" target="_blank">唐永双</a>
+                    <span title="Last edited at&nbsp;2019-05-02">2019-05-02</span>
+                </p>
+                <p>来自岸河世界</p>
+            </div>
+            <h2 class="post-title">WebServices相关知识点</h2>
+            <div class="post-meta">
+                emm... 1938 words in the article |
+                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h2 id="Web-Services技术"><a href="#Web-Services技术" class="headerlink" title="Web Services技术"></a>Web Services技术</h2><p><strong>背景：</strong>为了方便理解，可以先认为：<code>Web Services = http + xml</code>，而现在流行的Restful可以认为是：<code>Restful = http + json</code>,当然其实这两种说法都是很不严谨的，这么写只是为了方便理解。</p>
+<h5 id="Web-Services特点介绍"><a href="#Web-Services特点介绍" class="headerlink" title="Web Services特点介绍"></a>Web Services特点介绍</h5><p>WebServices 提供一个建立分布式应用的平台，使得运行在不同<a href="http://lib.csdn.net/base/operatingsystem" target="_blank" rel="noopener">操作系统</a>和不同设备上的软件，或者是用不同的程序语言和不同厂商的软件开发工具开发的软件，所有可能的已开发和部署的软件，能够利用这一平台实现分布式计算的目的。WebServices的思想是：使得应用程序也具有 Web 分布式编程模型的松散耦合性。</p>
+<blockquote>
+<p>可以先认为Web Services是一项技术，可以实现不同平台，不同系统的外部调用，比较适合异构系统之间的调用，主要是使用了：HTTP请求协议和XML数据格式，由于国外现在还是在大面积使用Web Services技术，所以还是了解一下比较好。</p>
+</blockquote>
+<p>关于Web Services会听到很多其他的名词，这里可以做一下简单的普及：</p>
+<h5 id="xsd是什么？"><a href="#xsd是什么？" class="headerlink" title="xsd是什么？"></a>xsd是什么？</h5><p>xsd（XML Schema Definition）：是用来描述XML的文档结构的，是属于DTD的替代者，因为xsd是基于XML编写，而DTD不是，而且xsd支持数据结构，支持明明空间等等，所以现在很少人使用老掉牙的DTD了。</p>
+<h5 id="SOAP协议是什么？"><a href="#SOAP协议是什么？" class="headerlink" title="SOAP协议是什么？"></a>SOAP协议是什么？</h5><p>SOAP（Simple Object Access Protocal）：SOAP协议是基于HTTP协议的，基于POST请求发送数据，如果要发送发送一个SOAP协议，需要设置特定的请求头或者是特定的Content—Type如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SOAPAction: &quot;http://WebXml.com.cn/getSupportCity&quot;</span><br><span class="line">或者</span><br><span class="line">Content—Type:application/soap+xml</span><br></pre></td></tr></table></figure>
+<p>​    这个时候就可以认为是一个SOAP请求了，但是SOAP请求没有这么简单，我们还需要定义数据格式，SOAP请求对数据格式也是有严格要求的,如下：<code>soap:Envelope</code>是必需的，还有其他元素，Header，Body等等，发送的数据要包含在这里面；</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Envelope</span> <span class="attr">xmlns:soap</span>=<span class="string">"http://www.w3.org/2001/12/soap-envelope"</span></span></span><br><span class="line"><span class="tag"><span class="attr">soap:encodingStyle</span>=<span class="string">"http://www.w3.org/2001/12/soap-encoding"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">m:Trans</span> <span class="attr">xmlns:m</span>=<span class="string">"http://www.w3schools.com/transaction/"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">soap:mustUnderstand</span>=<span class="string">"1"</span>&gt;</span>234</span><br><span class="line">  <span class="tag">&lt;/<span class="name">m:Trans</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Header</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">m:GetPrice</span> <span class="attr">xmlns:m</span>=<span class="string">"http://www.w3schools.com/prices"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">m:Item</span>&gt;</span>Apples<span class="tag">&lt;/<span class="name">m:Item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">m:GetPrice</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="WSDL是什么？"><a href="#WSDL是什么？" class="headerlink" title="WSDL是什么？"></a>WSDL是什么？</h5><p>WSDL（Web Services Description Language）：WSDL是用来描述Web Service的，它用XML的格式描述了WebService有哪些方法、参数类型、访问路径等等。<strong>我们要使用一个Web Service肯定首先要获取它的WSDL</strong>。Web Service服务器端首先要通过一个WSDL文件来说明自己家里有啥服务可以对外调用。</p>
+<p>将WSDL文件保存在Web服务器上，通过一个url地址就可以访问。客户端要调用一个WebService服务之前，要知道该服务的WSDL文件的地址。Web Service服务提供商可以通过两种方式来暴露它的WSDL文件地址：1.注册到UDDI服务器，以便被人查找；2.直接告诉给客户端调用者。</p>
+<p>(提示：IDEA能根据你的Web Service生成WSDL，也能导入WSDL生成响应的代理类代码。)</p>
+<blockquote>
+<p>番外篇：可以认为WebService平台的三大技术分别是：XML+XSD，SOAP，WSDL。可以认为，XML+XSD定义了客户端的数据格式，SOAP定义了传输协议，WSDL定义了服务端的有哪些服务。</p>
+</blockquote>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+            <a href="/tags/Web-Services、通信手段/">Web Services、通信手段</a>
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
+    
+    
+
+    
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about" title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="Help">Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
+        </p>
+        <p>
+            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br>
+            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，Author&nbsp<a href="https://tangyongshuang.github.io" target="_blank" rel="friend">唐永双</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input" spellcheck="false" type="text" autocomplete="off" placeholder="Input query keywords here...">
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>
