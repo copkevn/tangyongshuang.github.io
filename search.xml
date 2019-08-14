@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2019/08/14/categories/life/a/"/>
+      <url>/2019/08/14/categories/life/a/</url>
+      
+        <content type="html"><![CDATA[<h2 id="尝试life菜单"><a href="#尝试life菜单" class="headerlink" title="尝试life菜单"></a>尝试life菜单</h2>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>logback日志详解</title>
       <link href="/2019/08/14/logback%E6%97%A5%E5%BF%97%E8%AF%A6%E8%A7%A3/"/>
       <url>/2019/08/14/logback%E6%97%A5%E5%BF%97%E8%AF%A6%E8%A7%A3/</url>
@@ -142,6 +155,44 @@
         <tags>
             
             <tag> Web Services、通信手段 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Hexo博客，Github部署</title>
+      <link href="/2019/04/25/categories/others/index/"/>
+      <url>/2019/04/25/categories/others/index/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>其他部分的内容，有空补上～～</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Hexo搭建之道 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Hexo博客，Github部署</title>
+      <link href="/2019/04/25/categories/work/index/"/>
+      <url>/2019/04/25/categories/work/index/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>工作部分，有空补上～～</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Hexo搭建之道 </tag>
             
         </tags>
       
