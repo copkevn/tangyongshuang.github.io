@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>webservices相关知识点 - 岸河世界</title>
+<title>岸河世界</title>
 
 <meta name="keywords" content="java developer">
 
@@ -113,9 +113,6 @@
             <div class="page-title">
     <ul>
         <li><a href="/">最近</a></li>
-        
-        
-        
         <li class="page-search">
     <form id="search" class="search-form">
         <input type="text" readonly="readonly" id="local-search-input-tip" placeholder="读物检索~">
@@ -134,35 +131,18 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="https://tangyongshuang.github.io" target="_blank">唐永双</a>
-                    <span title="最后编辑于&nbsp;2019-05-02">2019-05-02</span>
+                    <span title="最后编辑于&nbsp;2019-08-14">2019-08-14</span>
                 </p>
                 <p>来自岸河世界</p>
             </div>
-            <h2 class="post-title">WebServices相关知识点</h2>
+            <h2 class="post-title"></h2>
             <div class="post-meta">
-                本文共计1938个字 |
+                本文共计8个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h2 id="Web-Services技术"><a href="#Web-Services技术" class="headerlink" title="Web Services技术"></a>Web Services技术</h2><p><strong>背景：</strong>为了方便理解，可以先认为：<code>Web Services = http + xml</code>，而现在流行的Restful可以认为是：<code>Restful = http + json</code>,当然其实这两种说法都是很不严谨的，这么写只是为了方便理解。</p>
-<h5 id="Web-Services特点介绍"><a href="#Web-Services特点介绍" class="headerlink" title="Web Services特点介绍"></a>Web Services特点介绍</h5><p>WebServices 提供一个建立分布式应用的平台，使得运行在不同<a href="http://lib.csdn.net/base/operatingsystem" target="_blank" rel="noopener">操作系统</a>和不同设备上的软件，或者是用不同的程序语言和不同厂商的软件开发工具开发的软件，所有可能的已开发和部署的软件，能够利用这一平台实现分布式计算的目的。WebServices的思想是：使得应用程序也具有 Web 分布式编程模型的松散耦合性。</p>
-<blockquote>
-<p>可以先认为Web Services是一项技术，可以实现不同平台，不同系统的外部调用，比较适合异构系统之间的调用，主要是使用了：HTTP请求协议和XML数据格式，由于国外现在还是在大面积使用Web Services技术，所以还是了解一下比较好。</p>
-</blockquote>
-<p>关于Web Services会听到很多其他的名词，这里可以做一下简单的普及：</p>
-<h5 id="xsd是什么？"><a href="#xsd是什么？" class="headerlink" title="xsd是什么？"></a>xsd是什么？</h5><p>xsd（XML Schema Definition）：是用来描述XML的文档结构的，是属于DTD的替代者，因为xsd是基于XML编写，而DTD不是，而且xsd支持数据结构，支持明明空间等等，所以现在很少人使用老掉牙的DTD了。</p>
-<h5 id="SOAP协议是什么？"><a href="#SOAP协议是什么？" class="headerlink" title="SOAP协议是什么？"></a>SOAP协议是什么？</h5><p>SOAP（Simple Object Access Protocal）：SOAP协议是基于HTTP协议的，基于POST请求发送数据，如果要发送发送一个SOAP协议，需要设置特定的请求头或者是特定的Content—Type如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SOAPAction: &quot;http://WebXml.com.cn/getSupportCity&quot;</span><br><span class="line">或者</span><br><span class="line">Content—Type:application/soap+xml</span><br></pre></td></tr></table></figure>
-<p>​    这个时候就可以认为是一个SOAP请求了，但是SOAP请求没有这么简单，我们还需要定义数据格式，SOAP请求对数据格式也是有严格要求的,如下：<code>soap:Envelope</code>是必需的，还有其他元素，Header，Body等等，发送的数据要包含在这里面；</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Envelope</span> <span class="attr">xmlns:soap</span>=<span class="string">"http://www.w3.org/2001/12/soap-envelope"</span></span></span><br><span class="line"><span class="tag"><span class="attr">soap:encodingStyle</span>=<span class="string">"http://www.w3.org/2001/12/soap-encoding"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">m:Trans</span> <span class="attr">xmlns:m</span>=<span class="string">"http://www.w3schools.com/transaction/"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">soap:mustUnderstand</span>=<span class="string">"1"</span>&gt;</span>234</span><br><span class="line">  <span class="tag">&lt;/<span class="name">m:Trans</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Header</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">m:GetPrice</span> <span class="attr">xmlns:m</span>=<span class="string">"http://www.w3schools.com/prices"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">m:Item</span>&gt;</span>Apples<span class="tag">&lt;/<span class="name">m:Item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">m:GetPrice</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="WSDL是什么？"><a href="#WSDL是什么？" class="headerlink" title="WSDL是什么？"></a>WSDL是什么？</h5><p>WSDL（Web Services Description Language）：WSDL是用来描述Web Service的，它用XML的格式描述了WebService有哪些方法、参数类型、访问路径等等。<strong>我们要使用一个Web Service肯定首先要获取它的WSDL</strong>。Web Service服务器端首先要通过一个WSDL文件来说明自己家里有啥服务可以对外调用。</p>
-<p>将WSDL文件保存在Web服务器上，通过一个url地址就可以访问。客户端要调用一个WebService服务之前，要知道该服务的WSDL文件的地址。Web Service服务提供商可以通过两种方式来暴露它的WSDL文件地址：1.注册到UDDI服务器，以便被人查找；2.直接告诉给客户端调用者。</p>
-<p>(提示：IDEA能根据你的Web Service生成WSDL，也能导入WSDL生成响应的代理类代码。)</p>
-<blockquote>
-<p>番外篇：可以认为WebService平台的三大技术分别是：XML+XSD，SOAP，WSDL。可以认为，XML+XSD定义了客户端的数据格式，SOAP定义了传输协议，WSDL定义了服务端的有哪些服务。</p>
-</blockquote>
-
+            <h2 id="尝试life菜单"><a href="#尝试life菜单" class="headerlink" title="尝试life菜单"></a>尝试life菜单</h2>
         </div>
         <div class="post-tool">
             <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
@@ -170,15 +150,7 @@
             </a>
         </div>
         
-        <div class="post-tags">标签：
-            
-            <a href="/tags/Web-Services、通信手段/">Web Services、通信手段</a>
-            
-        </div>
-        
     </article>
-    
-    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
     
     
 
@@ -191,7 +163,7 @@
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
-    <div class="footer-inner" style="text-align: center">
+    <div class="footer-inner" style="text-align: left">
         <p>
             <a href="/about" title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->
