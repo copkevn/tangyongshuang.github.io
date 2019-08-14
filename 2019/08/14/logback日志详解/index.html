@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="唐永双">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>logback日志详解 - 岸河世界</title>
+
+<meta name="keywords" content="java developer">
+
+<meta name="description " content>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="唐">唐</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">岸河世界</h1>
+        <h3 class="cover-siteTitle">将军发于士卒</h3>
+        <p class="cover-siteDesc">一个现实的理想主义者</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="https://www.circle.us/" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.shikeyou.com" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://github.com/tangyongshuang" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/tangyongshuang" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">Recent Posts</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text" readonly="readonly" id="local-search-input-tip" placeholder="click to search...">
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://tangyongshuang.github.io" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">Author</span>
+                    <a href="https://tangyongshuang.github.io" target="_blank">唐永双</a>
+                    <span title="Last edited at&nbsp;2019-08-14">2019-08-14</span>
+                </p>
+                <p>来自岸河世界</p>
+            </div>
+            <h2 class="post-title">logback日志详解</h2>
+            <div class="post-meta">
+                emm... 1433 words in the article |
+                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="logback日志详解"><a href="#logback日志详解" class="headerlink" title="logback日志详解"></a>logback日志详解</h1><h2 id="logback的日志输出形式"><a href="#logback的日志输出形式" class="headerlink" title="logback的日志输出形式"></a>logback的日志输出形式</h2><p>在了解logback日志输出之前我们应该先了解logback的文件格式，一个<code>&lt;configuration&gt;</code>标签里面可以配置多个<code>&lt;property&gt;</code>和多个<code>&lt;appender&gt;</code>。</p>
+<blockquote>
+<p>property是name，value的格式，里面配置的是我们的一些配置信息，比如文件输出格式，控制台输出格式，文件生成路径，最大保留时间，文件最大尺寸等，到时候下面的appender里面需要的时候可以直接已<code>${name}</code>的形式进行引用，这些内容一般定义的头部，configuration下面。</p>
+<p>appender主要指定日志的输出形式，一般的需要控制两种，控制台和文件，即要配置两个appender，如果想要配置输出不同日志级别的文件，需要每个日志级别配置一个appender。</p>
+</blockquote>
+<h3 id="输出到控制台"><a href="#输出到控制台" class="headerlink" title="输出到控制台"></a>输出到控制台</h3><p>输出到控制台的时候需要<code>appender</code>需要配置为<code>ConsoleAppender</code>,即这种</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"console"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">encoder</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>$&#123;CONSOLE_LOG_PATTERN&#125;<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">charset</span>&gt;</span>utf8<span class="tag">&lt;/<span class="name">charset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">encoder</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出为文件"><a href="#输出为文件" class="headerlink" title="输出为文件"></a>输出为文件</h3><p>输出为文件的时候需要配置日志滚动策略RollingPolicy和触发策略TriggeringPolicy。</p>
+<h4 id="RollingPolicy"><a href="#RollingPolicy" class="headerlink" title="RollingPolicy"></a>RollingPolicy</h4><blockquote>
+<p>注意：TimeBasedRollingPolicy同时可以作为日志滚动策略和出发策略。</p>
+</blockquote>
+<ol>
+<li><h5 id="RollingFileAppender"><a href="#RollingFileAppender" class="headerlink" title="RollingFileAppender"></a><code>RollingFileAppender</code></h5><ul>
+<li><a href="https://logback.qos.ch/manual/appenders.html#SizeBasedTriggeringPolicy" target="_blank" rel="noopener"><code>SizeBasedTriggeringPolicy</code></a></li>
+</ul>
+<p>默认大小为10M</p>
+<ul>
+<li><a href="https://logback.qos.ch/manual/appenders.html#TimeBasedRollingPolicy" target="_blank" rel="noopener"><code>TimeBasedRollingPolicy</code></a></li>
+</ul>
+</li>
+<li><h5 id="TimeBasedRollingPolicy"><a href="#TimeBasedRollingPolicy" class="headerlink" title="TimeBasedRollingPolicy"></a><code>TimeBasedRollingPolicy</code></h5></li>
+</ol>
+<p>输出为文件，类型为<code>RollingFileAppender</code>，同时还需要配置<code>TriggeringPolicy</code>。</p>
+<p>日志转移策略，首先日志生成在test.log里面，<strong>test.log满了之后</strong>，新建tests.1.log，将日志信息复制到tests.1.log里面，<strong>test.log再次满了之后</strong>，新建tests.2.log，将日志转移到tests.2.log里面，再把tests.1.log里面清空，继续在test.log里面写。<strong>也就是说，test.log每满一次，就出发一次日志文件转移的操作。</strong></p>
+<blockquote>
+<p>日志信息新旧顺序方面</p>
+<p>test.log最新，tests.1.log较新，tests.2.log较旧，tests.3.log最旧。</p>
+</blockquote>
+<p>还有就是在按照固定窗口模式生成日志文件的时候，尽管设置的最小文件为1MB，但是实际上都是在4.7、4.8MB左右。这个原因是我一条日志（一个logger.info）的大小就是4.7MB，4.8MB左右，而logback不会打碎一条日志信息到两个文件当中。所以当把这两条日志信息放在一起输出的时候，就是9.7MB，三条合在一起输出的时候就是14.3MB。</p>
+<p>所以，设置的MaxFileSize为1MB还是有效的，不过生产生是肯定不会设置这么小的。</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
+    
+    
+
+    
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about" title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="Help">Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
+        </p>
+        <p>
+            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br>
+            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，Author&nbsp<a href="https://tangyongshuang.github.io" target="_blank" rel="friend">唐永双</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input" spellcheck="false" type="text" autocomplete="off" placeholder="Input query keywords here...">
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>
