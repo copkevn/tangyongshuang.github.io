@@ -164,10 +164,10 @@
     
     <entry>
       <title>搭建Hexo博客，Github部署</title>
-      <link href="/2019/04/25/categories/others/index/"/>
-      <url>/2019/04/25/categories/others/index/</url>
+      <link href="/2019/04/25/categories/work/index/"/>
+      <url>/2019/04/25/categories/work/index/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>其他部分的内容，有空补上～～</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>工作部分，有空补上～～</p></blockquote>]]></content>
       
       
       
@@ -183,10 +183,10 @@
     
     <entry>
       <title>搭建Hexo博客，Github部署</title>
-      <link href="/2019/04/25/categories/work/index/"/>
-      <url>/2019/04/25/categories/work/index/</url>
+      <link href="/2019/04/25/categories/others/index/"/>
+      <url>/2019/04/25/categories/others/index/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>工作部分，有空补上～～</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>其他部分的内容，有空补上～～</p></blockquote>]]></content>
       
       
       
